@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp
+    codebase="https://designgridlayout.java.net"
+    href="examples.jnlp">
+    <information>
+        <title>DesignGridLayout Examples</title>
+        <vendor>Jason Aaron Osgood, Jean-Francois Poilpret</vendor>
+        <homepage href="https://java.net/projects/designgridlayout" />
+        <description>DesignGridLayout</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se" />
+        <jar href="designgridlayout-1.11-tests.jar" main="true" />
+        <jar href="designgridlayout-1.11.jar" main="false" />
+    </resources>
+    <application-desc main-class="net.java.dev.designgridlayout.showdown.Examples" />
+</jnlp>
