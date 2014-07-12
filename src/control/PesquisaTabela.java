@@ -136,6 +136,7 @@ public class PesquisaTabela extends Control
 		}
 		catch (Exception e)
 		{
+			e.printStackTrace();
 		}
 	}
 
