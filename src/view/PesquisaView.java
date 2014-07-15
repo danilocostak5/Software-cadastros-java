@@ -45,12 +45,8 @@ public class PesquisaView extends JFrame
 	{
 		
 		super("Pesquisa");
-		System.out.println("aaaaaaaa");
-		
 		inicio(pesquisa);
-		System.out.println("bbbbbbbbb");
 		salvar.addActionListener(new PesquisaControl(this, t, pesquisa));
-		System.out.println("ccccccccc");
 	}
 
 	JButton salvar;
@@ -90,7 +86,7 @@ public class PesquisaView extends JFrame
 			if (pesquisa.getOrientador() != null)
 			{
 				xorientador = (new PesquisadorMysql().listar(" WHERE id="
-						+ pesquisa.getOrientador()).get(0));
+						+ pesquisa.getOrientador().getId()).get(0));
 			}
 
 			orientador = new Autocompletee(new PesquisadorMysql().listar(""),
@@ -103,7 +99,7 @@ public class PesquisaView extends JFrame
 			{
 				xpesquisador_responsavel = (new PesquisadorMysql()
 						.listar(" WHERE id="
-								+ pesquisa.getPesquisador_responsavel()).get(0));
+								+ pesquisa.getPesquisador_responsavel().getId()).get(0));
 			}
 
 			pesquisador_responsavel = new Autocompletee(
@@ -148,7 +144,7 @@ public class PesquisaView extends JFrame
 			InstituicaoSubmissao xinstituicao_submissao = null;
 			if (pesquisa.getInstituicao_submissao() != null)
 				xinstituicao_submissao = (new InstituicaoSubmissaoMysql()
-						.listar(" WHERE id=" + pesquisa.getInstituicao_submissao())
+						.listar(" WHERE id=" + pesquisa.getInstituicao_submissao().getId())
 						.get(0));
 			instituicao_submissao = new Autocompletee(
 					new InstituicaoSubmissaoMysql().listar(""),
@@ -156,14 +152,14 @@ public class PesquisaView extends JFrame
 			FonteFinanciamento xfonte_financiamento = null;
 			if (pesquisa.getFonte_financiamento() != null)
 				xfonte_financiamento = (new FonteFinanciamentoMysql()
-						.listar(" WHERE id=" + pesquisa.getFonte_financiamento())
+						.listar(" WHERE id=" + pesquisa.getFonte_financiamento().getId())
 						.get(0));
 			fonte_financiamento = new Autocompletee(
 					new FonteFinanciamentoMysql().listar(""), xfonte_financiamento);
 			AreaConhecimento xarea_conhecimento_CNPq = null;
 			if (pesquisa.getArea_conhecimento_CNPq() != null)
 				xarea_conhecimento_CNPq = (new AreaConhecimentoMysql()
-						.listar(" WHERE id=" + pesquisa.getArea_conhecimento_CNPq())
+						.listar(" WHERE id=" + pesquisa.getArea_conhecimento_CNPq().getId())
 						.get(0));
 			area_conhecimento_CNPq = new Autocompletee(
 					new AreaConhecimentoMysql().listar(""), xarea_conhecimento_CNPq);
@@ -209,7 +205,7 @@ public class PesquisaView extends JFrame
 			Local xlocal = null;
 			if (pesquisa.getLocal() != null)
 				xlocal = (new LocalMysql().listar(" WHERE id="
-						+ pesquisa.getLocal()).get(0));
+						+ pesquisa.getLocal().getId()).get(0));
 			local = new Autocompletee(new LocalMysql().listar(""), xlocal);
 			resumo = new JTextArea(pesquisa.getResumo() == null ? "" : pesquisa
 					.getResumo().toString());
