@@ -81,8 +81,8 @@ public class PesquisaTabela extends Control
 				pesquisa.getFonte_financiamento(),
 				pesquisa.getArea_conhecimento_CNPq(),
 				pesquisa.getPalavras_chave(),
-				pesquisa.getInstituicoes_cooperadoras(),
-				pesquisa.getLocal(), pesquisa.getResumo() };
+				pesquisa.getInstituicoes_cooperadoras(), pesquisa.getLocal(),
+				pesquisa.getResumo() };
 	}
 
 	public void adc(Pesquisa o) throws Exception

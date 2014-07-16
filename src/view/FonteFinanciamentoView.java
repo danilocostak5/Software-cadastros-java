@@ -1,4 +1,5 @@
 package view;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,42 +20,56 @@ import control.*;
 import view.*;
 import modelo.FonteFinanciamento;
 
-public class FonteFinanciamentoView extends JFrame{
-	public FonteFinanciamentoView( FonteFinanciamentoTabela t) throws Exception{
-		super("FonteFinanciamento");
-		inicio(new FonteFinanciamento());
-		salvar.addActionListener(new FonteFinanciamentoControl(this,t));
-	}
-	public FonteFinanciamentoView( Autocompletee t) throws Exception{
-		super("FonteFinanciamento");
-		inicio(new FonteFinanciamento());
-		salvar.addActionListener(new FonteFinanciamentoControl(this,t));
-	}
-	public FonteFinanciamentoView( FonteFinanciamentoTabela t,FonteFinanciamento fontefinanciamento) throws Exception{
-		super("FonteFinanciamento");
-		inicio(fontefinanciamento);
-		salvar.addActionListener(new FonteFinanciamentoControl(this,t,fontefinanciamento));
-	}
+public class FonteFinanciamentoView extends JFrame
+{
+	
 	JButton salvar;
 	public JTextInt id;
 	public JTextField nome;
-	public void inicio(FonteFinanciamento fontefinanciamento) throws Exception{
+
+	public FonteFinanciamentoView(FonteFinanciamentoTabela t) throws Exception
+	{
+		super("FonteFinanciamento");
+		inicio(new FonteFinanciamento());
+		salvar.addActionListener(new FonteFinanciamentoControl(this, t));
+	}
+
+	public FonteFinanciamentoView(Autocompletee t) throws Exception
+	{
+		super("FonteFinanciamento");
+		inicio(new FonteFinanciamento());
+		salvar.addActionListener(new FonteFinanciamentoControl(this, t));
+	}
+
+	public FonteFinanciamentoView(FonteFinanciamentoTabela t,
+			FonteFinanciamento fontefinanciamento) throws Exception
+	{
+		super("FonteFinanciamento");
+		inicio(fontefinanciamento);
+		salvar.addActionListener(new FonteFinanciamentoControl(this, t,
+				fontefinanciamento));
+	}
+	
+	public void inicio(FonteFinanciamento fontefinanciamento) throws Exception
+	{
 		salvar = new JButton("Salvar");
 		id = new JTextInt(fontefinanciamento.getId());
 		id.setEditable(false);
 		id.setEnabled(false);
-		nome = new JTextField(fontefinanciamento.getNome()==null?"":fontefinanciamento.getNome());
+		nome = new JTextField(fontefinanciamento.getNome() == null ? ""
+				: fontefinanciamento.getNome());
 
 		JPanel pp = new JPanel();
 		DesignGridLayout layout = new DesignGridLayout(pp);
 		layout.row().grid(new JLabel("ID:")).add(id);
 		layout.row().grid(new JLabel("Nome:")).add(nome);
 
-		layout.row().grid().add(salvar,1);
+		layout.row().grid().add(salvar, 1);
 		getContentPane().add(new JScrollPane(pp));
 		pack();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setSize(400, 150);
 		setVisible(true);
-	}}
+	}
+}

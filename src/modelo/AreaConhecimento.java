@@ -7,8 +7,6 @@ public class AreaConhecimento
 	String ciencia;
 	String areaAvaliacao;
 
-
-
 	public AreaConhecimento(long i)
 	{
 		id = i;
@@ -40,6 +38,7 @@ public class AreaConhecimento
 	{
 		this.nome = x;
 	}
+
 	public String getCiencia()
 	{
 		return ciencia;

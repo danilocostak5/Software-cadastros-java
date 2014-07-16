@@ -2,23 +2,33 @@ package auxiliares;
 
 import javax.swing.JTextField;
 
-public class JTextInt extends JTextField {
-	public JTextInt() {
+public class JTextInt extends JTextField
+{
+	public JTextInt()
+	{
 		setDocument(new DocumentInt());
 		setText("0");
 	}
-	public JTextInt(long id) {
+
+	public JTextInt(long id)
+	{
 		setDocument(new DocumentInt());
-		setText(id+"");
+		setText(id + "");
 	}
-	public JTextInt(int id) {
+
+	public JTextInt(int id)
+	{
 		setDocument(new DocumentInt());
-		setText(id+"");
+		setText(id + "");
 	}
-	public int getValor(){
+
+	public int getValor()
+	{
 		return Integer.parseInt(getText());
 	}
-	public void setText(long i) {
-		setText(i+"");
+
+	public void setText(long i)
+	{
+		setText(i + "");
 	}
 }

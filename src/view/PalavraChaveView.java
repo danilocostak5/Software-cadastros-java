@@ -1,4 +1,5 @@
 package view;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -19,42 +20,56 @@ import control.*;
 import view.*;
 import modelo.PalavraChave;
 
-public class PalavraChaveView extends JFrame{
-	public PalavraChaveView( PalavraChaveTabela t) throws Exception{
-		super("PalavraChave");
-		inicio(new PalavraChave());
-		salvar.addActionListener(new PalavraChaveControl(this,t));
-	}
-	public PalavraChaveView( Autocompletee t) throws Exception{
-		super("PalavraChave");
-		inicio(new PalavraChave());
-		salvar.addActionListener(new PalavraChaveControl(this,t));
-	}
-	public PalavraChaveView( PalavraChaveTabela t,PalavraChave palavrachave) throws Exception{
-		super("PalavraChave");
-		inicio(palavrachave);
-		salvar.addActionListener(new PalavraChaveControl(this,t,palavrachave));
-	}
+public class PalavraChaveView extends JFrame
+{
+	
 	JButton salvar;
 	public JTextInt id;
 	public JTextField palavra;
-	public void inicio(PalavraChave palavrachave) throws Exception{
+
+	public PalavraChaveView(PalavraChaveTabela t) throws Exception
+	{
+		super("PalavraChave");
+		inicio(new PalavraChave());
+		salvar.addActionListener(new PalavraChaveControl(this, t));
+	}
+
+	public PalavraChaveView(Autocompletee t) throws Exception
+	{
+		super("PalavraChave");
+		inicio(new PalavraChave());
+		salvar.addActionListener(new PalavraChaveControl(this, t));
+	}
+
+	public PalavraChaveView(PalavraChaveTabela t, PalavraChave palavrachave)
+			throws Exception
+	{
+		super("PalavraChave");
+		inicio(palavrachave);
+		salvar.addActionListener(new PalavraChaveControl(this, t, palavrachave));
+	}
+
+	
+	public void inicio(PalavraChave palavrachave) throws Exception
+	{
 		salvar = new JButton("Salvar");
 		id = new JTextInt(palavrachave.getId());
 		id.setEditable(false);
 		id.setEnabled(false);
-		palavra = new JTextField(palavrachave.getPalavra()==null?"":palavrachave.getPalavra());
+		palavra = new JTextField(palavrachave.getPalavra() == null ? ""
+				: palavrachave.getPalavra());
 
 		JPanel pp = new JPanel();
 		DesignGridLayout layout = new DesignGridLayout(pp);
 		layout.row().grid(new JLabel("ID:")).add(id);
 		layout.row().grid(new JLabel("Palavra-chave:")).add(palavra);
 
-		layout.row().grid().add(salvar,1);
+		layout.row().grid().add(salvar, 1);
 		getContentPane().add(new JScrollPane(pp));
 		pack();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setSize(400, 150);
 		setVisible(true);
-	}}
+	}
+}

@@ -164,13 +164,16 @@ public class PesquisaMysql
 				// pesquisa.setId((Long)rs.getObject("id"));
 				pesquisa.setTitulo(rs.getString("titulo"));
 				// pesquisa.setTitulo((String)rs.getObject("titulo"));
-				// pesquisa.setOrientador(new Pesquisador(rs.getLong("orientador")));
-				pesquisa.setOrientador(new
-				PesquisadorMysql().listar(" WHERE id ="+(rs.getLong("orientador"))).get(0));
+				// pesquisa.setOrientador(new
+				// Pesquisador(rs.getLong("orientador")));
+				pesquisa.setOrientador(new PesquisadorMysql().listar(
+						" WHERE id =" + (rs.getLong("orientador"))).get(0));
 				// pesquisa.setPesquisador_responsavel(new Pesquisador(rs
-				// 		.getLong("pesquisador_responsavel")));
-				pesquisa.setPesquisador_responsavel(new
-				PesquisadorMysql().listar(" WHERE id ="+(rs.getLong("pesquisador_responsavel"))).get(0));
+				// .getLong("pesquisador_responsavel")));
+				pesquisa.setPesquisador_responsavel(new PesquisadorMysql()
+						.listar(" WHERE id ="
+								+ (rs.getLong("pesquisador_responsavel"))).get(
+								0));
 				pesquisa.setColaboradores(new PesquisacolaboradoresMysql()
 						.listar(rs.getLong("id")));
 				pesquisa.setAno_submissao(rs.getInt("ano_submissao"));
@@ -190,26 +193,30 @@ public class PesquisaMysql
 				pesquisa.setResultado(rs.getString("resultado"));
 				// pesquisa.setResultado((String)rs.getObject("resultado"));
 				// pesquisa.setInstituicao_submissao(new InstituicaoSubmissao(rs
-				// 		.getLong("instituicao_submissao")));
-				pesquisa.setInstituicao_submissao(new
-				 InstituicaoSubmissaoMysql().listar(" WHERE id ="+(rs.getLong("instituicao_submissao"))).get(0));
+				// .getLong("instituicao_submissao")));
+				pesquisa.setInstituicao_submissao(new InstituicaoSubmissaoMysql()
+						.listar(" WHERE id ="
+								+ (rs.getLong("instituicao_submissao"))).get(0));
 				// pesquisa.setFonte_financiamento(new FonteFinanciamento(rs
-				// 	.getLong("fonte_financiamento")));
-				 pesquisa.setFonte_financiamento(new
-				 FonteFinanciamentoMysql().listar(" WHERE id ="+(rs.getLong("fonte_financiamento"))).get(0));
+				// .getLong("fonte_financiamento")));
+				pesquisa.setFonte_financiamento(new FonteFinanciamentoMysql()
+						.listar(" WHERE id ="
+								+ (rs.getLong("fonte_financiamento"))).get(0));
 				// pesquisa.setArea_conhecimento_CNPq(new AreaConhecimento(rs
-				// 	.getLong("area_conhecimento_CNPq")));
-				pesquisa.setArea_conhecimento_CNPq(new
-				AreaConhecimentoMysql().listar(" WHERE id ="+(rs.getLong("area_conhecimento_CNPq"))).get(0));
+				// .getLong("area_conhecimento_CNPq")));
+				pesquisa.setArea_conhecimento_CNPq(new AreaConhecimentoMysql()
+						.listar(" WHERE id ="
+								+ (rs.getLong("area_conhecimento_CNPq")))
+						.get(0));
 				pesquisa.setPalavras_chave(new Pesquisapalavras_chaveMysql()
 						.listar(rs.getLong("id")));
 				pesquisa.setInstituicoes_cooperadoras(new Pesquisainstituicoes_cooperadorasMysql()
 						.listar(rs.getLong("id")));
 				// pesquisa.setLocal(new Local(rs.getLong("local")));
-				pesquisa.setLocal(new
-				LocalMysql().listar(" WHERE id ="+(rs.getLong("local"))).get(0));
+				pesquisa.setLocal(new LocalMysql().listar(
+						" WHERE id =" + (rs.getLong("local"))).get(0));
 				// pesquisa.setResumo(rs.getString("resumo"));
-				pesquisa.setResumo((String)rs.getObject("resumo"));
+				pesquisa.setResumo((String) rs.getObject("resumo"));
 				lista.add(pesquisa);
 			}
 			rs.close();

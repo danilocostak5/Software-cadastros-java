@@ -98,7 +98,8 @@ public class AreaConhecimentoMysql
 				areaconhecimento.setId(rs.getLong("id"));
 				areaconhecimento.setNome(rs.getString("nome"));
 				areaconhecimento.setCiencia(rs.getString("ciencia"));
-				areaconhecimento.setAreaAvaliacao(rs.getString("areaAvaliacao"));
+				areaconhecimento
+						.setAreaAvaliacao(rs.getString("areaAvaliacao"));
 				lista.add(areaconhecimento);
 			}
 			rs.close();

@@ -26,29 +26,6 @@ import modelo.Pesquisa;
 
 public class PesquisaView extends JFrame
 {
-
-	public PesquisaView(PesquisaTabela t) throws Exception
-	{
-		super("Pesquisa");
-		inicio(new Pesquisa());
-		salvar.addActionListener(new PesquisaControl(this, t));
-	}
-
-	public PesquisaView(Autocompletee t) throws Exception
-	{
-		super("Pesquisa");
-		inicio(new Pesquisa());
-		salvar.addActionListener(new PesquisaControl(this, t));
-	}
-
-	public PesquisaView(PesquisaTabela t, Pesquisa pesquisa) throws Exception
-	{
-		
-		super("Pesquisa");
-		inicio(pesquisa);
-		salvar.addActionListener(new PesquisaControl(this, t, pesquisa));
-	}
-
 	JButton salvar;
 	public JTextInt id;
 	public JTextField titulo;
@@ -71,6 +48,28 @@ public class PesquisaView extends JFrame
 	public Autocompletee local;
 	public JTextArea resumo;
 
+	public PesquisaView(PesquisaTabela t) throws Exception
+	{
+		super("Pesquisa");
+		inicio(new Pesquisa());
+		salvar.addActionListener(new PesquisaControl(this, t));
+	}
+
+	public PesquisaView(Autocompletee t) throws Exception
+	{
+		super("Pesquisa");
+		inicio(new Pesquisa());
+		salvar.addActionListener(new PesquisaControl(this, t));
+	}
+
+	public PesquisaView(PesquisaTabela t, Pesquisa pesquisa) throws Exception
+	{
+		
+		super("Pesquisa");
+		inicio(pesquisa);
+		salvar.addActionListener(new PesquisaControl(this, t, pesquisa));
+	}
+	
 	public void inicio(Pesquisa pesquisa)
 	{
 		try

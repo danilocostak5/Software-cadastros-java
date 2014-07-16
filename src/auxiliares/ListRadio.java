@@ -17,32 +17,37 @@ import javax.swing.JRadioButton;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.TableColumn;
 
-public class ListRadio extends JPanel {
+public class ListRadio extends JPanel
+{
 	ArrayList<JRadioButton> lista = new ArrayList<>();
 	ButtonGroup bg = new ButtonGroup();
 
-	public ListRadio(String[] list, String selecionado) {
+	public ListRadio(String[] list, String selecionado)
+	{
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		setBorder(new EmptyBorder(-10, 0, 0, 0));
 		boolean primeiro = true;
-		for (String nome : list) {
+		for (String nome : list)
+		{
 			boolean marcado = false;
-			if (primeiro) {
+			if (primeiro)
+			{
 				primeiro = false;
 				marcado = true;
 			}
 			if (selecionado != null && nome.equals(selecionado))
 				marcado = true;
-			
-			
+
 			lista.add(new JRadioButton(nome, marcado));
 			bg.add(lista.get(lista.size() - 1));
 			add(lista.get(lista.size() - 1));
 		}
 	}
 
-	public String getText() {
-		for (JRadioButton c : lista) {
+	public String getText()
+	{
+		for (JRadioButton c : lista)
+		{
 			if (c.isSelected())
 				return c.getText();
 		}
