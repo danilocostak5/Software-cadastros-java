@@ -82,7 +82,7 @@ public class PalavraChaveMysql
 
 	public ArrayList<PalavraChave> listar(String condicao) throws Exception
 	{
-		ArrayList<PalavraChave> lista = new ArrayList<>();
+		ArrayList<PalavraChave> lista = new ArrayList<PalavraChave>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM palavrachave "

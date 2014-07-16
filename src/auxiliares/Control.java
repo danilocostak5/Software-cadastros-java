@@ -80,7 +80,7 @@ public abstract class Control implements ActionListener
 
 			else if (evt.getSource().equals(view.getBuscar()))
 			{
-				TableRowSorter<TableModel> sorter = new TableRowSorter<>(view
+				TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(view
 						.getTabela().getModel());
 				view.getTabela().setRowSorter(sorter);
 				sorter.setRowFilter(RowFilter.regexFilter(view.getFiltro()

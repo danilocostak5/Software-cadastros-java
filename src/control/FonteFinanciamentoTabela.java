@@ -15,7 +15,7 @@ import view.*;
 
 public class FonteFinanciamentoTabela extends Control
 {
-	ArrayList<FonteFinanciamento> list = new ArrayList<>();
+	ArrayList<FonteFinanciamento> list = new ArrayList<FonteFinanciamento>();
 
 	public FonteFinanciamentoTabela() throws Exception
 	{
@@ -27,7 +27,7 @@ public class FonteFinanciamentoTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		Object linhas[][] = new Object[list.size()][];

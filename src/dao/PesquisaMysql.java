@@ -30,7 +30,7 @@ public class PesquisaMysql
 	public long inserir(Pesquisa pesquisa) throws Exception
 	{
 		String sql = "INSERT INTO pesquisa "
-				+ "(titulo,orientador,pesquisador_responsavel,ano_submissao,tempo_duracao,tipo,qualificacao,impacto_pesquisa,gerou_patente,status,resultado,instituicao_submissao,fonte_financiamento,area_conhecimento_CNPq,local,resumo) VALUES('"
+				+ "(titulo,orientador,pesquisador_responsavel,ano_submissao,tempo_duracao,tipo,qualificacao,impacto_pesquisa,gerou_patente,status,resultado,instituicao_submissao,fonte_financiamento,area_conhecimento_CNPq, resumo) VALUES('"
 				+ pesquisa.getTitulo()
 				+ "','"
 				+ pesquisa.getOrientador().getId()
@@ -59,8 +59,6 @@ public class PesquisaMysql
 				+ "','"
 				+ pesquisa.getArea_conhecimento_CNPq().getId()
 				+ "','"
-				+ pesquisa.getLocal().getId()
-				+ "','"
 				+ pesquisa.getResumo()
 				+ "')";
 		long x = 0;
@@ -79,7 +77,7 @@ public class PesquisaMysql
 					pesquisa.getPalavras_chave());
 			new Pesquisainstituicoes_cooperadorasMysql().inserir(x,
 					pesquisa.getInstituicoes_cooperadoras());
-
+            new PesquisaLocaisMysql().inserir(x, pesquisa.getLocais());
 		}
 		catch (SQLException e)
 		{
@@ -95,6 +93,7 @@ public class PesquisaMysql
 		new PesquisacolaboradoresMysql().remover(x);
 		new Pesquisapalavras_chaveMysql().remover(x);
 		new Pesquisainstituicoes_cooperadorasMysql().remover(x);
+        new PesquisaLocaisMysql().remover(x);
 		sql = "DELETE FROM pesquisa WHERE id = '" + x + "'";
 		try
 		{
@@ -127,7 +126,6 @@ public class PesquisaMysql
 				+ pesquisa.getFonte_financiamento().getId() + "',"
 				+ "area_conhecimento_CNPq = '"
 				+ pesquisa.getArea_conhecimento_CNPq().getId() + "',"
-				+ "local = '" + pesquisa.getLocal().getId() + "',"
 				+ "resumo = '" + pesquisa.getResumo() + "'" + " WHERE id = '"
 				+ x + "'";
 		new PesquisacolaboradoresMysql().remover(x);
@@ -139,6 +137,8 @@ public class PesquisaMysql
 		new Pesquisainstituicoes_cooperadorasMysql().remover(x);
 		new Pesquisainstituicoes_cooperadorasMysql().inserir(x,
 				pesquisa.getInstituicoes_cooperadoras());
+        new PesquisaLocaisMysql().remover(x);
+        new PesquisaLocaisMysql().inserir(x, pesquisa.getLocais());
 
 		try
 		{
@@ -152,7 +152,7 @@ public class PesquisaMysql
 
 	public ArrayList<Pesquisa> listar(String condicao) throws Exception
 	{
-		ArrayList<Pesquisa> lista = new ArrayList<>();
+		ArrayList<Pesquisa> lista = new ArrayList<Pesquisa>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM pesquisa "
@@ -213,8 +213,8 @@ public class PesquisaMysql
 				pesquisa.setInstituicoes_cooperadoras(new Pesquisainstituicoes_cooperadorasMysql()
 						.listar(rs.getLong("id")));
 				// pesquisa.setLocal(new Local(rs.getLong("local")));
-				pesquisa.setLocal(new LocalMysql().listar(
-						" WHERE id =" + (rs.getLong("local"))).get(0));
+				pesquisa.setLocais(new PesquisaLocaisMysql().listar(
+						rs.getLong("id")));
 				// pesquisa.setResumo(rs.getString("resumo"));
 				pesquisa.setResumo((String) rs.getObject("resumo"));
 				lista.add(pesquisa);

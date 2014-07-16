@@ -15,7 +15,7 @@ import view.*;
 
 public class LocalTabela extends Control
 {
-	ArrayList<Local> list = new ArrayList<>();
+	ArrayList<Local> list = new ArrayList<Local>();
 
 	public LocalTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class LocalTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("cidade");
 		colunas.add("estado");

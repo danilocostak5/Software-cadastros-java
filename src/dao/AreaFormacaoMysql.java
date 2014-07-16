@@ -82,7 +82,7 @@ public class AreaFormacaoMysql
 
 	public ArrayList<AreaFormacao> listar(String condicao) throws Exception
 	{
-		ArrayList<AreaFormacao> lista = new ArrayList<>();
+		ArrayList<AreaFormacao> lista = new ArrayList<AreaFormacao>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM areaformacao "

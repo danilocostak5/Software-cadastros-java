@@ -85,7 +85,7 @@ public class FonteFinanciamentoMysql
 	public ArrayList<FonteFinanciamento> listar(String condicao)
 			throws Exception
 	{
-		ArrayList<FonteFinanciamento> lista = new ArrayList<>();
+		ArrayList<FonteFinanciamento> lista = new ArrayList<FonteFinanciamento>();
 		try
 		{
 			ResultSet rs = comando

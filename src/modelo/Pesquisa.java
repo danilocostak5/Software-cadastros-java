@@ -22,7 +22,7 @@ public class Pesquisa
 	AreaConhecimento area_conhecimento_CNPq;
 	ArrayList<PalavraChave> palavras_chave;
 	ArrayList<InstituicaoCooperadora> instituicoes_cooperadoras;
-	Local local;
+	ArrayList<Local> locais;
 	StringBuffer resumo;
 
 	public Pesquisa()
@@ -221,14 +221,14 @@ public class Pesquisa
 		this.instituicoes_cooperadoras = x;
 	}
 
-	public Local getLocal()
+	public ArrayList<Local> getLocais()
 	{
-		return local;
+		return this.locais;
 	}
 
-	public void setLocal(Local x)
+	public void setLocais(ArrayList<Local> x)
 	{
-		this.local = x;
+		this.locais = x;
 	}
 
 	public StringBuffer getResumo()

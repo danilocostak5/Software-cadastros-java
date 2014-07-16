@@ -97,7 +97,7 @@ public class PesquisadorMysql
 
 	public ArrayList<Pesquisador> listar(String condicao) throws Exception
 	{
-		ArrayList<Pesquisador> lista = new ArrayList<>();
+		ArrayList<Pesquisador> lista = new ArrayList<Pesquisador>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM pesquisador "

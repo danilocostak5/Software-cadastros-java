@@ -105,7 +105,7 @@ public class PesquisaControl implements ActionListener
 				.getSelected());
 		x.setPalavras_chave(view.palavras_chave.getList());
 		x.setInstituicoes_cooperadoras(view.instituicoes_cooperadoras.getList());
-		x.setLocal((Local) view.local.getSelected());
+		x.setLocais(view.locais.getList());
 		x.setResumo(view.resumo.getText());
 		return x;
 	}
@@ -127,6 +127,7 @@ public class PesquisaControl implements ActionListener
 				pesquisa.getArea_conhecimento_CNPq().getId(),
 				pesquisa.getPalavras_chave(),
 				pesquisa.getInstituicoes_cooperadoras(),
-				pesquisa.getLocal().getId(), pesquisa.getResumo() };
+				pesquisa.getLocais(),
+                pesquisa.getResumo() };
 	}
 }

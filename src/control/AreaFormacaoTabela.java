@@ -15,7 +15,7 @@ import view.*;
 
 public class AreaFormacaoTabela extends Control
 {
-	ArrayList<AreaFormacao> list = new ArrayList<>();
+	ArrayList<AreaFormacao> list = new ArrayList<AreaFormacao>();
 
 	public AreaFormacaoTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class AreaFormacaoTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		Object linhas[][] = new Object[list.size()][];

@@ -15,7 +15,7 @@ import view.*;
 
 public class PalavraChaveTabela extends Control
 {
-	ArrayList<PalavraChave> list = new ArrayList<>();
+	ArrayList<PalavraChave> list = new ArrayList<PalavraChave>();
 
 	public PalavraChaveTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class PalavraChaveTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("palavra");
 		Object linhas[][] = new Object[list.size()][];

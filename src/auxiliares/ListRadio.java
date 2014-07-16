@@ -19,7 +19,7 @@ import javax.swing.table.TableColumn;
 
 public class ListRadio extends JPanel
 {
-	ArrayList<JRadioButton> lista = new ArrayList<>();
+	ArrayList<JRadioButton> lista = new ArrayList<JRadioButton>();
 	ButtonGroup bg = new ButtonGroup();
 
 	public ListRadio(String[] list, String selecionado)

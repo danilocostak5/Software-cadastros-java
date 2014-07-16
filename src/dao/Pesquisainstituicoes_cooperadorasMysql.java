@@ -60,7 +60,7 @@ public class Pesquisainstituicoes_cooperadorasMysql
 
 	public ArrayList<InstituicaoCooperadora> listar(long id) throws Exception
 	{
-		ArrayList<InstituicaoCooperadora> lista = new ArrayList<>();
+		ArrayList<InstituicaoCooperadora> lista = new ArrayList<InstituicaoCooperadora>();
 		if (id > 0)
 		{
 			String sql = "SELECT * FROM Pesquisainstituicoes_cooperadoras WHERE id1 = "

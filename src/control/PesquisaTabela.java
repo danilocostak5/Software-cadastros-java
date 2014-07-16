@@ -15,7 +15,7 @@ import view.*;
 
 public class PesquisaTabela extends Control
 {
-	ArrayList<Pesquisa> list = new ArrayList<>();
+	ArrayList<Pesquisa> list = new ArrayList<Pesquisa>();
 
 	public PesquisaTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class PesquisaTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("titulo");
 		colunas.add("orientador");
@@ -45,7 +45,7 @@ public class PesquisaTabela extends Control
 		colunas.add("area_conhecimento_CNPq");
 		colunas.add("palavras_chave");
 		colunas.add("instituicoes_cooperadoras");
-		colunas.add("local");
+		colunas.add("locais");
 		colunas.add("resumo");
 		Object linhas[][] = new Object[list.size()][];
 		int i = 0;
@@ -81,7 +81,8 @@ public class PesquisaTabela extends Control
 				pesquisa.getFonte_financiamento(),
 				pesquisa.getArea_conhecimento_CNPq(),
 				pesquisa.getPalavras_chave(),
-				pesquisa.getInstituicoes_cooperadoras(), pesquisa.getLocal(),
+				pesquisa.getInstituicoes_cooperadoras(),
+                pesquisa.getLocais(),
 				pesquisa.getResumo() };
 	}
 

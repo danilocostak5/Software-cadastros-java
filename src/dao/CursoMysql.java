@@ -82,7 +82,7 @@ public class CursoMysql
 
 	public ArrayList<Curso> listar(String condicao) throws Exception
 	{
-		ArrayList<Curso> lista = new ArrayList<>();
+		ArrayList<Curso> lista = new ArrayList<Curso>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM curso "

@@ -87,7 +87,7 @@ public class InstituicaoSubmissaoMysql
 	public ArrayList<InstituicaoSubmissao> listar(String condicao)
 			throws Exception
 	{
-		ArrayList<InstituicaoSubmissao> lista = new ArrayList<>();
+		ArrayList<InstituicaoSubmissao> lista = new ArrayList<InstituicaoSubmissao>();
 		try
 		{
 			ResultSet rs = comando

@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.JCheckBox;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 
 import dao.*;
 import auxiliares.*;
@@ -45,7 +47,7 @@ public class PesquisaView extends JFrame
 	public Autocompletee area_conhecimento_CNPq;
 	public ListaAutoComplete palavras_chave;
 	public ListaAutoComplete instituicoes_cooperadoras;
-	public Autocompletee local;
+	public ListaAutoComplete locais;
 	public JTextArea resumo;
 
 	public PesquisaView(PesquisaTabela t) throws Exception
@@ -153,14 +155,16 @@ public class PesquisaView extends JFrame
 				xfonte_financiamento = (new FonteFinanciamentoMysql()
 						.listar(" WHERE id=" + pesquisa.getFonte_financiamento().getId())
 						.get(0));
-			fonte_financiamento = new Autocompletee(
+
+            fonte_financiamento = new Autocompletee(
 					new FonteFinanciamentoMysql().listar(""), xfonte_financiamento);
 			AreaConhecimento xarea_conhecimento_CNPq = null;
 			if (pesquisa.getArea_conhecimento_CNPq() != null)
 				xarea_conhecimento_CNPq = (new AreaConhecimentoMysql()
 						.listar(" WHERE id=" + pesquisa.getArea_conhecimento_CNPq().getId())
 						.get(0));
-			area_conhecimento_CNPq = new Autocompletee(
+
+            area_conhecimento_CNPq = new Autocompletee(
 					new AreaConhecimentoMysql().listar(""), xarea_conhecimento_CNPq);
 			JButton palavrax = new JButton("Novo");
 			
@@ -181,8 +185,10 @@ public class PesquisaView extends JFrame
 					}
 				}
 			});
-			JButton instituicoes = new JButton("Novo");
-			instituicoes_cooperadoras = new ListaAutoComplete(
+
+            JButton instituicoes = new JButton("Novo");
+
+            instituicoes_cooperadoras = new ListaAutoComplete(
 					new InstituicaoCooperadoraMysql().listar(""),
 					pesquisa.getInstituicoes_cooperadoras(),instituicoes);
 			instituicoes.addActionListener(new ActionListener()
@@ -201,11 +207,21 @@ public class PesquisaView extends JFrame
 					
 				}
 			});
-			Local xlocal = null;
-			if (pesquisa.getLocal() != null)
-				xlocal = (new LocalMysql().listar(" WHERE id="
-						+ pesquisa.getLocal().getId()).get(0));
-			local = new Autocompletee(new LocalMysql().listar(""), xlocal);
+
+            JButton blocais = new JButton("Novo");
+
+            locais = new ListaAutoComplete(new LocalMysql().listar(""), pesquisa.getLocais(), blocais);
+            blocais.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        new LocalView(locais.getAutocompletee());
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+            });
+
 			resumo = new JTextArea(pesquisa.getResumo() == null ? "" : pesquisa
 					.getResumo().toString());
 
@@ -315,22 +331,8 @@ public class PesquisaView extends JFrame
 			layout.row().grid(new JLabel("Palavras-chave:")).add(palavras_chave);
 			layout.row().grid(new JLabel("Instituições cooperadoras:"))
 					.add(instituicoes_cooperadoras);
-			JButton dlocal = new JButton("Novo");
-			dlocal.addActionListener(new ActionListener()
-			{
-				public void actionPerformed(ActionEvent arg0)
-				{
-					try
-					{
-						new LocalView(local);
-					}
-					catch (Exception e)
-					{
-						e.printStackTrace();
-					}
-				}
-			});
-			layout.row().grid(new JLabel("Local:")).add(local).add(dlocal);
+            layout.row().grid(new JLabel("Locais:")).add(locais);
+
 			layout.row().grid(new JLabel("Resumo:")).add(resumo);
 
 			layout.row().grid().add(salvar, 1);

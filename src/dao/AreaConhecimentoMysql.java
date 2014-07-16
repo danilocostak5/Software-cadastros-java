@@ -87,7 +87,7 @@ public class AreaConhecimentoMysql
 
 	public ArrayList<AreaConhecimento> listar(String condicao) throws Exception
 	{
-		ArrayList<AreaConhecimento> lista = new ArrayList<>();
+		ArrayList<AreaConhecimento> lista = new ArrayList<AreaConhecimento>();
 		try
 		{
 			ResultSet rs = comando

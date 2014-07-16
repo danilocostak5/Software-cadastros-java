@@ -26,7 +26,7 @@ public class View extends JPanel
 		tipo = new JCheckBox("Exata", false);
 		filtro = new JTextField();
 		pesquisa = new JTextField();
-		opcoes = new JComboBox<>();
+		opcoes = new JComboBox<String>();
 		buscar = new JButton("Filtrar");
 		pesquisar = new JButton("Pesquisar");
 

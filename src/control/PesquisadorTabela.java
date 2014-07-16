@@ -15,7 +15,7 @@ import view.*;
 
 public class PesquisadorTabela extends Control
 {
-	ArrayList<Pesquisador> list = new ArrayList<>();
+	ArrayList<Pesquisador> list = new ArrayList<Pesquisador>();
 
 	public PesquisadorTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class PesquisadorTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		colunas.add("nome_cientifico");

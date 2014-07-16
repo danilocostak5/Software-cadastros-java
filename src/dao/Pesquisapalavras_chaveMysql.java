@@ -59,7 +59,7 @@ public class Pesquisapalavras_chaveMysql
 
 	public ArrayList<PalavraChave> listar(long id) throws Exception
 	{
-		ArrayList<PalavraChave> lista = new ArrayList<>();
+		ArrayList<PalavraChave> lista = new ArrayList<PalavraChave>();
 		if (id > 0)
 		{
 			String sql = "SELECT * FROM Pesquisapalavras_chave WHERE id1 = "

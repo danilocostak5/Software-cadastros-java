@@ -15,7 +15,7 @@ import view.*;
 
 public class InstituicaoSubmissaoTabela extends Control
 {
-	ArrayList<InstituicaoSubmissao> list = new ArrayList<>();
+	ArrayList<InstituicaoSubmissao> list = new ArrayList<InstituicaoSubmissao>();
 
 	public InstituicaoSubmissaoTabela() throws Exception
 	{
@@ -27,7 +27,7 @@ public class InstituicaoSubmissaoTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		Object linhas[][] = new Object[list.size()][];

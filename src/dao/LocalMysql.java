@@ -86,7 +86,7 @@ public class LocalMysql
 
 	public ArrayList<Local> listar(String condicao) throws Exception
 	{
-		ArrayList<Local> lista = new ArrayList<>();
+		ArrayList<Local> lista = new ArrayList<Local>();
 		try
 		{
 			ResultSet rs = comando.executeQuery("SELECT * FROM local "

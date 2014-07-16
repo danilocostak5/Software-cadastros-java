@@ -58,7 +58,7 @@ public class PesquisacolaboradoresMysql
 
 	public ArrayList<Pesquisador> listar(long id) throws Exception
 	{
-		ArrayList<Pesquisador> lista = new ArrayList<>();
+		ArrayList<Pesquisador> lista = new ArrayList<Pesquisador>();
 		if (id > 0)
 		{
 			String sql = "SELECT * FROM Pesquisacolaboradores WHERE id1 = "

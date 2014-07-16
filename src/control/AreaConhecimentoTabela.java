@@ -15,7 +15,7 @@ import view.*;
 
 public class AreaConhecimentoTabela extends Control
 {
-	ArrayList<AreaConhecimento> list = new ArrayList<>();
+	ArrayList<AreaConhecimento> list = new ArrayList<AreaConhecimento>();
 
 	public AreaConhecimentoTabela() throws Exception
 	{
@@ -27,7 +27,7 @@ public class AreaConhecimentoTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		colunas.add("ciencia");

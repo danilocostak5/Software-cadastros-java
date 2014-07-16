@@ -15,7 +15,7 @@ import view.*;
 
 public class CursoTabela extends Control
 {
-	ArrayList<Curso> list = new ArrayList<>();
+	ArrayList<Curso> list = new ArrayList<Curso>();
 
 	public CursoTabela() throws Exception
 	{
@@ -26,7 +26,7 @@ public class CursoTabela extends Control
 
 	public void preencherTabela() throws Exception
 	{
-		ArrayList<String> colunas = new ArrayList<>();
+		ArrayList<String> colunas = new ArrayList<String>();
 		colunas.add("id");
 		colunas.add("nome");
 		Object linhas[][] = new Object[list.size()][];
