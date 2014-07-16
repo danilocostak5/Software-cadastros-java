@@ -67,10 +67,13 @@ public class PesquisaMysql
 			java.sql.PreparedStatement inserirReturnId = conexao
 					.getConnection().prepareStatement(sql,
 							Statement.RETURN_GENERATED_KEYS);
+			
 			inserirReturnId.executeUpdate();
+			
 			ResultSet rs = inserirReturnId.getGeneratedKeys();
-			if (rs.next())
-				x = rs.getLong(1);
+			
+			if (rs.next()) x = rs.getLong(1);
+			
 			new PesquisacolaboradoresMysql().inserir(x,
 					pesquisa.getColaboradores());
 			new Pesquisapalavras_chaveMysql().inserir(x,

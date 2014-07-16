@@ -89,6 +89,13 @@ id	INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 nome	VARCHAR(254)
 );
 
+CREATE TABLE IF NOT EXISTS pesquisalocal (
+id1 INTEGER NOT NULL,
+id2 INTEGER NOT NULL,
+FOREIGN KEY (id1) REFERENCES Pesquisa(id),
+FOREIGN KEY (id2) REFERENCES Local(id)
+);
+
 INSERT INTO `curso`(`nome`) VALUES 
 ('Bacharelado em Ciências Biológicas'),
 ('Bacharelado em Ciências Econômicas'),
