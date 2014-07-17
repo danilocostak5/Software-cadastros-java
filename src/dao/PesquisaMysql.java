@@ -158,6 +158,7 @@ public class PesquisaMysql
 		ArrayList<Pesquisa> lista = new ArrayList<Pesquisa>();
 		try
 		{
+			System.err.println("Condicao: " + condicao);
 			ResultSet rs = comando.executeQuery("SELECT * FROM pesquisa "
 					+ condicao);
 			while (rs.next())
