@@ -77,6 +77,12 @@ public abstract class Control implements ActionListener
 						System.err.println(pesquisa);
 						switch (pesquisa)
 						{
+							case " WHERE orientador ":
+								pesquisa = "WHERE id IN (SELECT Pesquisa.id FROM Pesquisa INNER JOIN Pesquisador ON Pesquisa.orientador = Pesquisador.id "
+										+ "WHERE (Pesquisa.orientador = Pesquisador.id)"
+										+ " AND (Pesquisador.nome LIKE '%"
+										+ conteudo + "%'))";
+								break;
 							case " WHERE colaboradores ":
 								pesquisa = " WHERE id in ("
 										+ "SELECT Pesquisacolaboradores.id1 FROM Pesquisacolaboradores "
@@ -172,5 +178,4 @@ public abstract class Control implements ActionListener
 			e.printStackTrace();
 		}
 	}
-
 }
