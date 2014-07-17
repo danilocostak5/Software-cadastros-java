@@ -3,7 +3,6 @@ package auxiliares;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -70,9 +69,49 @@ public abstract class Control implements ActionListener
 					}
 
 					if (view.getTipo().isSelected())
+					{
 						pesquisa = pesquisa + "= '" + conteudo + "'";
+					}
 					else
-						pesquisa = pesquisa + "LIKE '%" + conteudo + "%'";
+					{
+						System.err.println(pesquisa);
+						switch (pesquisa)
+						{
+							case " WHERE colaboradores ":
+								pesquisa = " WHERE id in ("
+										+ "SELECT Pesquisacolaboradores.id1 FROM Pesquisacolaboradores "
+										+ "INNER JOIN Pesquisador "
+										+ "WHERE (Pesquisacolaboradores.id2 = Pesquisador.id) "
+										+ "AND (Pesquisador.nome LIKE '%"
+										+ conteudo + "%'))";
+								break;
+							case " WHERE palavras_chave ":
+								pesquisa = " WHERE id in ("
+										+ "SELECT Pesquisapalavras_chave.id1 FROM  Pesquisapalavras_chave "
+										+ "INNER JOIN palavrachave "
+										+ "WHERE (Pesquisapalavras_chave.id2 = palavrachave.id) "
+										+ "AND (palavrachave.palavra LIKE '%"
+										+ conteudo + "%'))";
+								break;
+							case " WHERE fonte_financiamento ":
+								pesquisa = pesquisa + " = ("
+										+ "SELECT id FROM  fonteFinanciamento "
+										+ "WHERE nome LIKE '%" + conteudo
+										+ "%')";
+								break;
+							case " WHERE instituicoes_cooperadoras ":
+								pesquisa = " WHERE id in ("
+										+ "SELECT Pesquisainstituicoes_cooperadoras.id1 FROM  Pesquisainstituicoes_cooperadoras "
+										+ "INNER JOIN instituicaoCooperadora "
+										+ "WHERE (Pesquisainstituicoes_cooperadoras.id2 = instituicaoCooperadora.id) "
+										+ "AND (instituicaoCooperadora.nome LIKE '%"
+										+ conteudo + "%'))";
+								break;
+							default:
+								pesquisa = pesquisa + "LIKE '%" + conteudo
+										+ "%'";
+						}
+					}
 
 					pesquisar(pesquisa);
 				}
@@ -80,8 +119,8 @@ public abstract class Control implements ActionListener
 
 			else if (evt.getSource().equals(view.getBuscar()))
 			{
-				TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(view
-						.getTabela().getModel());
+				TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(
+						view.getTabela().getModel());
 				view.getTabela().setRowSorter(sorter);
 				sorter.setRowFilter(RowFilter.regexFilter(view.getFiltro()
 						.getText()));
